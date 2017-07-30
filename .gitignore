@@ -1,0 +1,6 @@
+# Project Source
+repos/*
+
+# Database files
+docker/mongo/*
+

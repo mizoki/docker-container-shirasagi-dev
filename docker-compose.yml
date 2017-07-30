@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:3.4.5
+    volumes:
+      - ./docker/mongo:/data/db
+    environment:
+      - TZ=Asia/Tokyo
+  ruby:
+    build:
+      context: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - ./repos:/var/www/shirasagi
+    ports:
+      - "3000:3000"
+    environment:
+      - TZ=Asia/Tokyo
+    links:
+      - mongo
+    depends_on:
+      - mongo
+
