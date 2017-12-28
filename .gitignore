@@ -3,4 +3,5 @@ repos/*
 
 # Database files
 docker/mongo/*
-
+# Database dump
+docker/dump/*
