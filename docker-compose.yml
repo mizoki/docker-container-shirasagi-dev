@@ -4,8 +4,11 @@ services:
     image: mongo:3.4.5
     volumes:
       - ./docker/mongo:/data/db
+      - ./docker/dump:/dump
     environment:
       - TZ=Asia/Tokyo
+    ports:
+      - "27017:27017"
   ruby:
     build:
       context: .
@@ -20,4 +23,6 @@ services:
       - mongo
     depends_on:
       - mongo
+    stdin_open: true
+    tty: true
 
