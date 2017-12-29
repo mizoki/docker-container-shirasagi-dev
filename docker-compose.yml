@@ -22,8 +22,24 @@ services:
       - RAILS_ENV=development
     links:
       - mongo
+      - mail
     depends_on:
       - mongo
     stdin_open: true
     tty: true
-
+  mail:
+    build:
+      context: docker/mail
+      command: /root/start.sh
+      volumes:
+        - ./docker/mail_data:/var/spool/virtual
+        - ./docker/mail/etc/dovecot:/etc/dovecot
+        - ./docker/mail/etc/postfix:/etc/postfix
+      expose:
+        - "25"
+        - "110"
+        - "143"
+        - "993"
+        - "995"
+      environment:
+        - TZ=Asia/Tokyo
