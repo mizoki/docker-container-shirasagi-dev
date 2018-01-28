@@ -15,6 +15,7 @@ services:
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - ./repos:/var/www/shirasagi
+      - bundle_cache:/usr/local/bundle
     ports:
       - "3000:3000"
     environment:
@@ -43,3 +44,5 @@ services:
         - "995"
       environment:
         - TZ=Asia/Tokyo
+volumes:
+  bundle_cache:

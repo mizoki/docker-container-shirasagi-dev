@@ -18,8 +18,7 @@ RUN mkdir -p /var/www/shirasagi
 WORKDIR /var/www/shirasagi
 
 ENV BUNDLE_GEMFILE=/var/www/shirasagi/Gemfile \
-    BUNDLE_JOBS=2 \
-    BUNDLE_PATH=/var/www/shirasagi/vendor/bundle
+    BUNDLE_JOBS=4
 
 # bundle install
 # docker-compose run ruby bundle install
