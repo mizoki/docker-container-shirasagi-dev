@@ -5,3 +5,6 @@ repos/*
 docker/mongo/*
 # Database dump
 docker/dump/*
+
+# Home Directory
+docker/home/*
