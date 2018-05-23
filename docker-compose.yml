@@ -25,6 +25,7 @@ services:
     links:
       - mongo
       - mail
+      - elasticsearch
     depends_on:
       - mongo
     stdin_open: true
@@ -45,5 +46,20 @@ services:
         - "995"
       environment:
         - TZ=Asia/Tokyo
+  elasticsearch:
+    build:
+      context: docker/elasticsearch
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
 volumes:
   bundle_cache:
+  elasticsearch_data:
