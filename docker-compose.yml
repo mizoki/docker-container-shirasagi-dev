@@ -21,6 +21,7 @@ services:
       - "3000:3000"
     environment:
       - TZ=Asia/Tokyo
+      - LANG=C.UTF-8
       - RAILS_ENV=development
     links:
       - mongo
