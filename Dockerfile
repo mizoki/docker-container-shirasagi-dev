@@ -1,4 +1,4 @@
-FROM ruby:2.3.4
+FROM ruby:2.5.1
 MAINTAINER Hiroto MIZOKI <h.mizoki@gmail.com>
 
 # proxy
