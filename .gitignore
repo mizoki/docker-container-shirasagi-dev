@@ -8,3 +8,6 @@ docker/dump/*
 
 # Home Directory
 docker/home/*
+
+# Mail Directory
+docker/mail_data/*
